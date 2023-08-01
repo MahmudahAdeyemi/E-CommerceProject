@@ -1,0 +1,42 @@
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.csproj.AssemblyReference.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.AssemblyInfoInputs.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.AssemblyInfo.cs
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.csproj.CoreCompileInputs.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.RazorAssemblyInfo.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.RazorAssemblyInfo.cs
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\appsettings.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.staticwebassets.runtime.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.exe
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.deps.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.runtimeconfig.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\ref\E-Commerce 2.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.pdb
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Humanizer.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\scopedcss\bundle\E-Commerce 2.styles.css
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\scopedcss\projectbundle\E-Commerce 2.bundle.scp.css
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.csproj.CopyComplete
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\ref\E-Commerce 2.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.pdb
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\obj\Debug\net6.0\E-Commerce 2.genruntimeconfig.cache
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
