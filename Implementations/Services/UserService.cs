@@ -12,6 +12,7 @@ namespace E_Commerce_2.Services
     {
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public UserService(IMapper mapper, UserManager<User> userManager)
         {

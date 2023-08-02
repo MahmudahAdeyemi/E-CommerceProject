@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_2.RequestModel
 {
-    public class UserRequestModel
+    public class CustomerRequestModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,5 +16,6 @@ namespace E_Commerce_2.RequestModel
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
         public IFormFile ProfilePicture{get; set;}
+        public string PhoneNumber{get;set;}
     }
 }

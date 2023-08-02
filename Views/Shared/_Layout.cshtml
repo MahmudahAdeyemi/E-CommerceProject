@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/E_Commerce_2.styles.css" asp-append-version="true" />
+  
 </head>
 <body>
     <header>
@@ -47,6 +48,57 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+<script type="text/javascript">
+// Default Configuration
+$(document).ready(function() {
+toastr.options = {
+'closeButton': true,
+'debug': false,
+'newestOnTop': false,
+'progressBar': false,
+'positionClass': 'toast-top-right',
+'preventDuplicates': false,
+'showDuration': '1000',
+'hideDuration': '1000',
+'timeOut': '5000',
+'extendedTimeOut': '1000',
+'showEasing': 'swing',
+'hideEasing': 'linear',
+'showMethod': 'fadeIn',
+'hideMethod': 'fadeOut',
+}
+});
+
+// Toast Type
+$('#success').click(function(event) {
+toastr.success('You clicked Success toast');
+});
+$('#info').click(function(event) {
+toastr.info('You clicked Info toast')
+});
+$('#error').click(function(event) {
+toastr.error('You clicked Error Toast')
+});
+$('#warning').click(function(event) {
+toastr.warning('You clicked Warning Toast')
+});
+
+// Toast Image and Progress Bar
+$('#image').click(function(event) {
+toastr.options.progressBar = true,
+toastr.info('<img src="https://image.flaticon.com/icons/svg/34/34579.svg" style="width:150px;">', 'Toast Image')
+});
+
+
+// Toast Position
+$('#position').click(function(event) {
+var pos = $('input[name=position]:checked', '#positionForm').val();
+toastr.options.positionClass = "toast-" + pos;
+toastr.options.preventDuplicates = false;
+toastr.info('This sample position', 'Toast Position')
+});
+</script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

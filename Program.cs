@@ -1,9 +1,9 @@
 using E_Commerce_2.Context;
 using E_Commerce_2.Entities;
 using E_Commerce_2.Interfaces.Services;
-using E_Commerce_2.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using E_Commerce_2.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
