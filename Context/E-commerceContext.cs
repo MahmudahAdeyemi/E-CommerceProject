@@ -17,6 +17,7 @@ namespace E_Commerce_2.Context
             // modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
-        public DbSet<Employee>Employees{get; set;}
+        public DbSet<Admin>Admins{get;set;}
+        public DbSet<Customer>Customers{get;set;}
     }
 }

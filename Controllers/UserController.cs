@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce_2.Controllers
 {
-    
+
     public class UserController : Controller
     {
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IUserService _userService;
 
-        public UserController(IMapper mapper, UserManager<User> userManager,IUserService userService)
+        public UserController(IMapper mapper, UserManager<User> userManager, IUserService userService)
         {
             _mapper = mapper;
             _userManager = userManager;
@@ -26,27 +26,30 @@ namespace E_Commerce_2.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRequestModel userRequestModel)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(userRequestModel);
             }
             var user = _userService.AddUser(userRequestModel);
             var result = await _userManager.CreateAsync(user, userRequestModel.Password);
-            if(!result.Succeeded)
+            if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
                 {
                     ModelState.TryAddModelError(error.Code, error.Description);
                 }
+                // Store error messages in TempData
+                TempData["ErrorMessage"] = "There was an error creating the user.";
                 return View(userRequestModel);
             }
             await _userManager.AddToRoleAsync(user, "Admin");
             return RedirectToAction("Index", "Home");
         }
+
     }
 }
