@@ -32,5 +32,10 @@ namespace E_Commerce_2.Implementations.Repositories
             _e_commerceContext.SaveChanges();
             return customer;
         }
+        public Customer GetCustomerByEmail(string Email)
+        {
+            var customer = _e_commerceContext.Customers.SingleOrDefault(x =>  x.User.Email == Email );
+            return customer;
+        }
     }
 }
