@@ -1,0 +1,8 @@
+﻿Build started...
+1>------ Build started: Project: E-Commerce 2, Configuration: Debug Any CPU ------
+1>Skipping analyzers to speed up the build. You can execute 'Build' or 'Rebuild' command to run analyzers.
+1>C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\Implementations\Services\UserService.cs(14,52,14,64): warning CS0169: The field 'UserService._roleManager' is never used
+1>E-Commerce 2 -> C:\Users\ADEYEMI-M\Desktop\c#codes\E-Commerce 2\bin\Debug\net6.0\E-Commerce 2.dll
+1>Done building project "E-Commerce 2.csproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build started at 12:26 and took 07.662 seconds ==========

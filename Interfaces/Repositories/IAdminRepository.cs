@@ -8,6 +8,7 @@ namespace E_Commerce_2.Interfaces.Repositories
         Admin CreateAdmin(Admin admin);
         Admin GetAdminById(int id);
         Admin UpdateAdmin(Admin admin);
+        Admin GetAdminByEmail(string Email);
     }
 
 }

@@ -25,38 +25,65 @@ namespace E_Commerce_2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Admins");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.HasKey("Id");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.ToTable("Brands");
+                });
 
-                    b.Property<string>("ProfilePicture")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
+            modelBuilder.Entity("E_Commerce_2.Entities.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins");
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("E_Commerce_2.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -67,9 +94,49 @@ namespace E_Commerce_2.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CartId");
+
                     b.HasIndex("UserId1");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Picture")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("E_Commerce_2.Entities.User", b =>
@@ -176,15 +243,15 @@ namespace E_Commerce_2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "037d98d7-a668-4f63-85df-beca4651ebbb",
-                            ConcurrencyStamp = "22e733cb-dd9b-429a-becb-6878b97af998",
+                            Id = "0a32114c-08b7-470e-a524-800520b2259b",
+                            ConcurrencyStamp = "644ef6f4-c8c0-49bb-8b68-dfb678d0dcee",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "83f3f70d-19ce-493d-bde2-d0ea05f33d64",
-                            ConcurrencyStamp = "a49af8f5-1d58-4db7-b9d6-a31dde85c170",
+                            Id = "3a307190-94fd-4797-a85e-fbda984da647",
+                            ConcurrencyStamp = "20977862-0239-48fd-9f9d-cd5329b857fd",
                             Name = "CUSTOMER",
                             NormalizedName = "CUSTOMER"
                         });
@@ -292,13 +359,53 @@ namespace E_Commerce_2.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("E_Commerce_2.Entities.Admin", b =>
+                {
+                    b.HasOne("E_Commerce_2.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("E_Commerce_2.Entities.Customer", b =>
                 {
+                    b.HasOne("E_Commerce_2.Entities.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("E_Commerce_2.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId1");
 
+                    b.Navigation("Cart");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Product", b =>
+                {
+                    b.HasOne("E_Commerce_2.Entities.Brand", "Brand")
+                        .WithMany("ProductList")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_Commerce_2.Entities.Cart", null)
+                        .WithMany("Products")
+                        .HasForeignKey("CartId");
+
+                    b.HasOne("E_Commerce_2.Entities.Category", null)
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -350,6 +457,21 @@ namespace E_Commerce_2.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Brand", b =>
+                {
+                    b.Navigation("ProductList");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Cart", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("E_Commerce_2.Entities.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

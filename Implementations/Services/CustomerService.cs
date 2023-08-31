@@ -1,6 +1,7 @@
 using AutoMapper;
 using E_Commerce_2.Entities;
 using E_Commerce_2.Implementations.Repositories;
+using E_Commerce_2.Interfaces.Repositories;
 using E_Commerce_2.Interfaces.Services;
 using E_Commerce_2.RequestModel;
 using E_Commerce_2.ResponseModel;
@@ -8,23 +9,24 @@ using Microsoft.AspNetCore.Identity;
 
 namespace E_Commerce_2.Implementations.Services
 {
-    
+
 
     public class CustomerService : ICustomerService
     {
+        private readonly ICartRepository _cartRepository;
         private readonly IMapper _mapper;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly CustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(IMapper mapper, RoleManager<IdentityRole> roleManager, CustomerRepository customerRepository)
+        public CustomerService(ICartRepository cartRepository, IMapper mapper, RoleManager<IdentityRole> roleManager, ICustomerRepository customerRepository)
         {
+            _cartRepository = cartRepository;
             _mapper = mapper;
             _roleManager = roleManager;
             _customerRepository = customerRepository;
         }
 
-
-        public BaseResponse AddCustomer(CustomerRequestModel customerRequestModel)
+        public BaseResponse AddCustomer(UserRequestModel customerRequestModel)
         {
             var user = new User
             {
@@ -32,7 +34,7 @@ namespace E_Commerce_2.Implementations.Services
                 FirstName = customerRequestModel.FirstName,
                 LastName = customerRequestModel.LastName,
                 PhoneNumber = customerRequestModel.PhoneNumber,
-                PasswordHash = customerRequestModel.Password
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(customerRequestModel.Password)
             };
             string filename = null;
             if (customerRequestModel.ProfilePicture != null)
@@ -59,10 +61,14 @@ namespace E_Commerce_2.Implementations.Services
                 UserId = user.Id,
                 RoleId = role.Id.ToString()
             };
+            var cart = new Cart();
+            _cartRepository.AddCart(cart);
+
             var customer = new Customer
             {
                 User = user,
-                UserId = int.Parse(user.Id)
+                UserId = int.Parse(user.Id),
+                CartId = cart.Id
             };
 
             _customerRepository.AddCustomer(customer);
@@ -77,8 +83,8 @@ namespace E_Commerce_2.Implementations.Services
         {
             if (_customerRepository.GetCustomerByEmail(loginCustomerRequest.Email) != null)
             {
-                var user = _customerRepository.GetCustomerByEmail(loginCustomerRequest.Email).User;
-                if (user.FirstName == loginCustomerRequest.FirstName && user.LastName == loginCustomerRequest.LastName && user.PasswordHash == loginCustomerRequest.Password)
+                var user = _customerRepository.GetCustomerByEmail(loginCustomerRequest.Email);
+                if (BCrypt.Net.BCrypt.Verify(loginCustomerRequest.Password, user.User.PasswordHash))
                 {
                     return new BaseResponse
                     {

@@ -5,7 +5,7 @@ namespace E_Commerce_2.Interfaces.Services
 {
     public interface ICustomerService
     {
-        BaseResponse AddCustomer(CustomerRequestModel customerRequestModel);
+        BaseResponse AddCustomer(UserRequestModel customerRequestModel);
         BaseResponse CustomerLogin(LoginCustomerRequest loginCustomerRequest);
     }
 }
